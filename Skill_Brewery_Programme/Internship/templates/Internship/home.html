@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Home
+        </title>
+    </head>
+    <body>
+        <form action="{% url 'verification' %}">
+        <h5>Name: {{app.name}}</h5><br>
+        <h5>Degree: {{app.degree}}</h5><br>
+        <h5>Current Semester: {{app.current_semester}}</h5><br>
+        <h5>Track: {{app.track}}</h5><br>
+        <h5>Email: {{app.email}}</h5><br>
+        <h5>Verification Code: {{app.verification_code}}</h5><br>
+        <a href="https://tinyurl.com/3yh58cjt">Fill the Verification Form</a>
+        <input type="submit">
+        </form>
+    </body>
+</html>

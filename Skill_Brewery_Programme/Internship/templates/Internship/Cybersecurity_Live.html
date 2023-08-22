@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Cybersecurity Evangelist Live
+        </title>
+    </head>
+    <body>
+         <a href="{% url 'index' %}" style="padding-right: 20px;">Skill-brewery</a>
+          <a href="{% url 'page_1' %}" style="padding-right: 20px;">Data Science Fastrack</a>
+          <a href="{% url 'page_2' %}" style="padding-right: 20px;">Cybersecurity Evangelist Live</a>
+          <a href="{% url 'page_3' %}" style="padding-right: 20px;">Terms and Conditions</a>
+          <br>
+          <br><br><br>
+        <a href="https://www.dropbox.com/s/iymtpiajy8spa3v/CEL%20Student%20Testimonials.pdf?dl=0">Review the Testimonials</a>
+        <a href="https://www.dropbox.com/s/iymtpiajy8spa3v/CEL%20Student%20Testimonials.pdf?dl=0" style="padding-left: 20px;">Review the syllabus outline</a>
+        <form action="{% url 'page_1' %}">
+        <h5>Name: {{app.name}}</h5><br>
+        <h5>Degree: {{app.degree}}</h5><br>
+        <h5>Current Semester: {{app.current_semester}}</h5><br>
+        <h5>Email: {{app.email}}</h5><br>
+        <h5>Verification Code: {{app.verification_code}}</h5><br>
+        <a href="https://tinyurl.com/3yh58cjt">Fill the Verification Form</a>
+        <input type="submit">
+        </form>
+    </body>
+</html>

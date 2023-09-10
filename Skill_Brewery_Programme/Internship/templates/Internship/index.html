@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- {% if result %}
+      <script>
+        alert("Confirmed!");
+      </script>
+    {% endif %} -->
+    <style>
+      @font-face {
+        font-family: Ranade;
+        src: url(../Fonts/Ranade-Regular.otf);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Ranade;
+      }
+      body {
+        background-color: #dde6ed;
+        min-height: 200vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .header {
+        background-color: #fbfcf8;
+        height: 800px;
+        width: 75vw;
+        border-radius: 50px;
+        margin-top: 30px;
+      }
+      .skill-brew-skills,
+      .form-services,
+      .footer {
+        background-color: #3d75be;
+        height: 60vh;
+        width: 75vw;
+        border-radius: 50px;
+        margin-top: 30px;
+      }
+      .review {
+        background-color: #fbfcf8;
+        height: 60vh;
+        width: 75vw;
+        border-radius: 50px;
+        margin-top: 30px;
+      }
+      .advert-form {
+        background-color: #fbfcf8;
+        height: 35vh;
+        width: 75vw;
+        border-radius: 50px;
+        margin-top: 30px;
+      }
+
+      .copyright {
+        background-color: #dde6ed;
+        height: 30px;
+        width: 100%;
+        margin-top: 20px;
+        color: #02729e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .WebExp-link {
+        text-decoration: none;
+        color: inherit;
+      }
+      .navbar-custom {
+        background-color: #fbfcf8;
+        border-radius: 50px;
+        margin: 20px 20px;
+        color: #3d75be;
+        font-family: "Ranade", sans-serif;
+      }
+      .navbar-custom .navbar-nav .nav-link {
+        color: black;
+        font-family: "Ranade", sans-serif;
+        font-size: 18px;
+      }
+      .navbar-brand {
+        color: #3d75be;
+        font-family: "Ranade", sans-serif;
+        font-family: "Ranade", sans-serif;
+        font-size: 30px;
+        margin-left: 20px;
+        font-weight: bolder;
+      }
+      .navbar-custom .navbar-brand:hover {
+        color: #66b3ff;
+      }
+      .navbar-custom .nav-link:hover {
+        color: #2fa5d3;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .navbar-nav .nav-link {
+        margin-right: 20px;
+      }
+      .dropdown-item {
+        color: black;
+        font-family: "Ranade", sans-serif;
+      }
+      .navbar-custom .btn-custom {
+        background-color: #487fc7;
+        border-radius: 30px;
+        width: 100px;
+        padding: 10px 20px;
+      }
+
+      .nav-link:hover::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #66b3ff;
+        margin-top: 3px;
+      }
+
+      .dropdown-menu a:hover::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #66b3ff;
+        margin-top: 3px;
+      }
+
+      .btn-custom:hover {
+        background-color: #66b3ff;
+      }
+      .screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        width: 75vw;
+      }
+      .screen-text {
+        font-family: "Roboto", sans-serif;
+        font-size: 70px;
+        width: 1200px;
+        text-align: left;
+      }
+      .header .line {
+        width: 50vh;
+        border: 5px;
+        border-style: solid;
+        border-color: #1f4679;
+        border-radius: 30px;
+        margin-bottom: 200px;
+        transition: width 0.3s, border-radius 0.3s;
+      }
+      .header .line:hover {
+        width: 60vh;
+        border-radius: 30px;
+      }
+      .centered-line {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .screen-text {
+        opacity: 0; /* Initially set the opacity to 0 */
+        transform: translateY(20px); /* Move the element down a bit */
+        animation: fadeInUp 1s ease forwards; /* Apply the animation */
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .skill-brew-container {
+        display: flex;
+        justify-content: space between;
+        align-items: center;
+        margin-bottom: 10px;
+        gap: 10px;
+        width: 400px;
+      }
+      .container-skill {
+        padding-bottom: 30px;
+      }
+      .skill-list {
+        flex: 1;
+        padding: 0;
+        border: none;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+        font-family: "Roboto", sans-serif;
+      }
+      .skill-brew-title {
+        font-size: 30px;
+        font-weight: 800;
+        width: 300px;
+      }
+      .skill-brew-skills hr {
+        width: 200px;
+        border: 5px solid white;
+        border-radius: 25px;
+      }
+      .skill-brew-text {
+        width: 600px;
+        padding-bottom: 30px;
+      }
+      .tick {
+        margin-right: 2px;
+        color: blue;
+      }
+      .skill-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 1000px;
+        gap: 30px;
+        text-align: left;
+        margin: 50px 0 0 50px;
+        color: white;
+      }
+      .skill-image-container {
+        padding-top: 100px;
+      }
+      .skill-brew-skills {
+        display: flex;
+      }
+      .advert-form {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .advert-form-text-head {
+        text-align: left;
+        font-weight: 800;
+        font-size: 24px;
+        padding-bottom: 30px;
+      }
+      .advert-form-text-body {
+        width: 700px;
+      }
+      .review {
+        text-align: center;
+      }
+      .review-text {
+        padding-top: 40px;
+        font-size: 24px;
+        font-weight: 800;
+      }
+      .review-text a {
+        text-decoration: none;
+        color: #3d75be;
+      }
+      .review-video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        gap: 100px;
+        padding-bottom: 30px;
+      }
+      .review-video-1 {
+        width: 500px;
+        height: 281.25px;
+      }
+      .review-video-2 {
+        width: 500px;
+        height: 281.25px;
+      }
+      .location img {
+        width: 20px;
+      }
+      .mail img {
+        width: 20px;
+      }
+      .mail a {
+        text-decoration: none;
+        color: white;
+      }
+      .social-media-links img {
+        width: 20px;
+      }
+      .social-media-links {
+        display: flex;
+        gap: 10px;
+        color: white;
+      }
+
+      .social-button {
+        position: relative;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        border-color: #000000;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        overflow: hidden;
+        transition: background-color 0.3s ease-in-out,
+          border-color 0.3s ease-in-out;
+      }
+
+      .social-button img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .social-button:hover {
+        background-color: white;
+        border-color: white;
+      }
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        color: white;
+      }
+      .footer-text {
+        font-size: 40px;
+        color: white;
+        width: 300px;
+        font-weight: 700;
+      }
+      .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 200px;
+      }
+      .get-in-touch-head {
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .header {
+        /* ... your existing styles ... */
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeInUp 2s forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .skill-brew-skills {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeInUp 1s 2s forwards;
+      }
+      .advert-form {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeInUp 1s 2s forwards;
+      }
+      .review {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeInUp 1s 2s forwards;
+      }
+      .footer {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeInUp 1s 2s forwards;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="data:image/jpeg;base64,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"
+      rel="icon"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script defer src="js/script.js"></script>
+    <title>Skill-Brewery</title>
+  </head>
+  <body>
+    <div class="header">
+      <nav class="navbar navbar-expand-md navbar-custom">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'index' %}">SKILL BREWERY</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Skill-Brewery</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Programs
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="{% url 'page_1' %}"
+                      >Data Science FastTrack</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'page_2' %}"
+                      >CyberSecurity Evangelist</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'page_3' %}"
+                      >Terms and Conditions</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active btn btn-custom btn-sm"
+                  aria-current="page"
+                  href="{% url 'index' %}"
+                  >Home</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="screen">
+        <div class="screen-text">
+          "Coding is like humor. When you have to explain it, it’s bad.” – Cory
+          House
+        </div>
+      </div>
+      <div class="centered-line">
+        <hr class="line" />
+      </div>
+    </div>
+    <div class="skill-brew-skills">
+      <div class="skill-container">
+        <div class="skill-brew-title" style="color: #000000;">
+          Skill Brewery: Virtual Internship program
+        </div>
+
+        <hr />
+        <div class="skill-brew-text" style="padding-bottom: 10px;">
+          Get ready to take your profile to the next level with thrilling
+          hands-on projects! Upon finishing the program, you'll receive a
+          prestigious internship certificate, invaluable work experience, and
+          personalized mentoring. Choose from a variety of domains and
+          supercharge your resume to stand out from the crowd!
+        </div>
+        <div class="container-skill">
+          <div class="skill-brew-container">
+            <div class="skill-list">
+              <span class="tick">&#10003;</span> Web Development
+            </div>
+            <div class="skill-list">
+              <span class="tick">&#10003;</span> Product Management
+            </div>
+          </div>
+
+          <div class="skill-brew-container" style="padding-bottom: 30px;">
+            <div class="skill-list">
+              <span class="tick">&#10003;</span> Data Science
+            </div>
+            <div class="skill-list">
+              <span class="tick">&#10003;</span> Computer Vision
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf17YI0sj5Eu1zHnbAKvOkJzO4hd4bWuU-AiAHZFwRou32Gw/viewform" style="color: #fbfcf8;">Fill the verification form</a>
+      <div class="skill-image-container">
+        <img src="https://codevita.live/img/ill2%20(2).png" width="200" height="200" alt="study" class="skill-image" />
+      </div>
+    </div>
+    <div class="advert-form">
+      <div class="advert-form-text">
+        <div class="advert-form-text-head">Ready to get started?</div>
+        <div class="advert-form-text-body">
+          Fill this form below after filling the verification form above. You
+          shall get the verification code after filling the Google Form. New
+          Cohorts Start On 15th Of Every Month.
+        </div>
+      </div>
+      <img src="https://codevita.live/img/newsletter.png" class="advert-image" width="200" height="200" />
+    </div>
+    <div class="form-services" style="padding-left: 40px;">
+    <form action="{% url 'email' %}" method="post">
+       {% csrf_token %}
+      <h5>Name: {{app.name}}</h5>
+      <h5>Degree: {{app.degree}}</h5>
+      <h5>Current Semester: {{app.current_semester}}</h5>
+      <h5>Track: {{app.track}}</h5>
+      <h5>Email: {{app.email}}</h5>
+      <h5>Verification Code: {{app.verification_code}}</h5>
+      <h5>Phone Number: {{app.phone_number}}</h5>
+      <input type="submit" class="btn btn-primary"/>
+    </form>
+    </div>
+    <div class="review">
+      <div class="review-text">
+        <a
+          class="review-link"
+          href="https://www.linkedin.com/feed/hashtag/skillbrewery/?focus=HASHTAG_FEED_CONTENT"
+        >
+          Checkout What Our Ex Interns Have To Say</a
+        >
+      </div>
+      <div class="review-video-container">
+        <div class="review-video-1">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/h4X8rKDSpjo?si=QT8CXIn_YQm4wKnD"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="review-video-2">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/J09qee7fYfk?si=Nj95NbwurO9e3z0g"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-links">
+        <div class="get-in-touch-head">Get In Touch</div>
+        <div class="location">
+        <img src="https://www.iconpacks.net/icons/1/free-pin-icon-48-thumb.png" width="10" height="20">
+        Nyati Estate Road,Pune-60,Maharashtra,India
+      </div>
+      <div class="mail">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJEAAAB5CAMAAAAOETP+AAAAZlBMVEX///8AAADj4+MhISGBgYEdHR2EhISoqKj5+fnb29vn5+ecnJyrq6vq6uo3NzcrKyuNjY1DQ0Px8fEMDAxwcHDQ0NCTk5NUVFRPT08TExOzs7MYGBjCwsK5ubkyMjJdXV1mZmZ4eHj1nkOAAAADfElEQVR4nO2Za5OqMAyGW0AFFRWUi3f5/39ybYIelBakTb+cyTuzM6u7LQ9pbgQhWCwWi8VisVgsFovFYrFYWiW77Yxe2zKxBdpJX9rZAVXegKSsbIAitXI7p1etNo6mAyVwL8eTzc0MKgciOd2XDm5HblSwxX2bySs3Ut7BtQ+kQIXacpM9f6auXIZSrsRKrb/ndEBrtWGWP/cNlxOXBk+itRAL3IEKCIxex2rbMLAjEpf9c4+ZdUr7FPjmXAgnIvhFni8EPOldAa2EK5EINmqjqzPQMlP7LIQ7kYir9705KDmq9Nba2pGoPX+LLNvRFSrAi8KZCGPk7gCEMZt2PjoSYR6prbNACXcUdwFdiTDXhnZZIH68op6SSBSqHp0LG6CsFxkkRCKBEjk9MaW3fvagIRJxbZMFIOl/9x5ERCI+TG9PIOqzb/+jImr7yijW/L9BEPV1qvmaiAjD+PcsEBnyGCFRm3t7N61VP+p9EE1ITGn1r7T6JBLB+bcsEAxkC1qi9t7HHlLQloaMSkwkcvCPcnD9CTp801Wpidr2ZOj5ZiQm6YnwIaUyXnGsofJAhKdS6XcdP1UfRJiYbrpt8/H654Wo7QX6wQQDg3A4O/ghwoPrZQGs9SPl2AtRHLWjis/jObXfPgYfon0QoSnkd+GCGDzC10Or6YlSnOXMc8g7j1d7gg1UFEMPImtz8SMnuoBTz5T3glEyRMImU0V9Aq31XltlPRDlDRoIMTALKK9JNx1PHzYTLRH67uZ9reSM0V6okcX+nQ2wHstS23BSEi3Rg3adC8ERncuZ4uympwV4eKUzEyHR6ahpMvC4FNBnyC9xBqopJ2REQWW4BEyGNA31Cbq7Wy+xUxEtZhBYumOIDLU+fXSjgJgIR2QGV31mAUNpXUMqzT7NREIEicfUf6gFpj/kGAsfT3kERAk46dFu0HaFJ/9tx0zuRKv9SFkYVvptJlcirAlOk8gLBN3sZSY3orj8ob0YVT6HXZrcnQgNdBzp3n4Qlmf0JhciEgOhcuzxmtiFCKqnPLuP11EFlpurGrROJlLvjkpCA6Fab4rmP89XOnpVT4vJ45CKVzc8+f2aaBv7ZsJA7Teh4S1eISTtkdMLpiYW72nxzUPVRNRqKkPTNK6H9CfLl7+r0BNPaF2QgkUW0itb0KUTFovFYrFYLBaLxWKxWKz/TH84ACqJtUuy2gAAAABJRU5ErkJggg==" width="10" height="20">
+        <a href="mailto:studentconnect@codevita.live">studentconnect@codevita.live</a>
+      </div>
+      <div class="social-media-links">
+        <a class="social-button facebook" href="https://www.facebook.com/">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY5Yj2nS1px6WEtZ2FmFQxWVuI8tD8PbuxRA&usqp=CAU" alt="facebook-image" width="10" height="20">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="social-button linkedin" href="https://www.linkedin.com/">
+          <img src="data:image/png;base64,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" alt="linkedin-image" width="10" height="20">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a class="social-button youtube" href="https://www.youtube.com/">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALkAAACACAMAAABgBjgLAAAAaVBMVEX/AAD/////b2//yMj/s7P/29v/p6f/8/P/+/v/oqL/4uL/j4//jY3/5+f/6+v/vLz/fn7/1tb/Njb/Hx//rKz/dnb/UFD/W1v/iIj/EhL/Zmb/Pz//k5P/zc3/JCT/GBj/Li7/mpr/RUWijFAIAAAE/klEQVR4nO2ca5uqIBCAF28Y5a00TdO0//8jD2CaplnuDiDPc96v5yy96xIMMzg/6De4FOx7HiHEpkRRWZoPAoplWTHDehAE3b+aZRlF7EfoT3qejzEb6VcK6Of7/+rbkWk5130WJoaR5+m5ONZ1dbpdftZyuZ2qqj4W93Oa54aRJNlh3ziWGdkehjF3sUeo7T7Mj6vt/kCdJtkuMG3iL/0e78zdKLhmRnpc/0DhOBV5eI3JCnM/CI8nlcojLlVWzj37qXmZnVTLTrjv/I/mdr6Zhz2idl6f+9gc71QbvuceLZjjQrXeEpf4rXlZqZb7QOPOm9s31WYfyWbNo+0tKVOaOfNNz/Eec2puqHb6Ev/V3FRt9C3hi/m218MhF3NsHqgW+p5kbK7NI6fYQ3Nzm8HKPNnQ/KraZg2F+zTHZ9U2a7iVT3NPtcw6nKe5Not5S/g033BUPscZ9+a5apeVkN68Vq2ykqgzxzrEt0N2nbmt0z7ESDpzS7XJWorOvFFtspaqMz+oNlnLjbTmbqLaZDVma451W87b/Z+ae1JTzCBcW3Oi23LehujU3FbtsR7D5ealao/1pJibQ8W4iZ0CjfSRwufmDtBwBnJlpRAqws0zoOEMtrM1NdBoy9jcHGoj4ubIlrKvldwcanYajxROJOE8bnJzqCxRZ06nu/ASQsDNoaLz3pwGFI3g3W3HzaFGG5jT6R5CDTtLJs6cbnAip3vCzDHUaC/mCMXiQrmcmftQo03MkS8sX3lm5gRqtKk5jUMFTfeamUdQo82Z06hIyJS5SDCncdEd6hMGMHOwdOg7c+RDRUYDmDlYfPfWnLqD1yyZOVieaMGcTnfgShQzhwrPl83p6g7qjqk5WPL8gznyITNSPjUHy819MkfIgzvuedQcbJ/7bE6nO9QKSWSbIxzDxL82Nd+DjPTzpTmd7iAfqMKcxu4A012NOULBn2N3Zg62Vq0wR/ivu0ikypy6/+1v/d+cI3W2qJrnun5DdV0VYXYiIt0caveXHreARVyetlEulmkOerJwJZ6JYE9z7BwaQw0m/QQt4+wvJmshPt8iKlMEVsh9Z74TkJ2TkVcUkxE9MnOwsr/MLLTo/Lm4zL8htmYhsNrC60Qu1GgyK1wCa3OCq4rC6qHCK7ltDRqq1C2zet7W/aHmo/wbC1AxhcxbIhE3h/ouSbyZc2vvFEEdLSTehjp63Bzq4yTeQDvD3p2TyOO+IliwKI+wNSfbf4v4lQPS9UZx05pjaV8sMAKk6c35S9Sag10SlcbNQ7q/IaLdWzn3zly7N6HCzly7t8+czhzptqCXvbku/RU6nm9ZgqVz5VA832zVLOYy3N7c33rLmTEN6s1dvd4/s57mer3CXfsD80inED1HA3OwnIsMzJG5RmfRszsyd/V56BYamaNSl6grRy/mYJku0ZCJORJxvx0eC03NbR020r4z1Kh7mwZ5l2FZZNgxz9z6Uw/fdMyjkde2jxjN0PW1M+SGWy0dS7RgTiOYjSa8qutyN05GsMGUV3Gd9p6d6TrrenF62s46c6tD87uusy3E3B2StFCZz7jwXsWz1kvm/OFjj9hlEGdJKnXRuZ2NzDFL4uGlZtcrOlpj/ms010Pf0vpeHOuq+l0740dX67apdZKErKd1UEbk65bWK8xH8DbifR/xqOzbiPMm4nEcO86uxeHErJd4MG4lzjqJ+z7+ZR/xf11ZOhPOhU74AAAAAElFTkSuQmCC" alt="youtube-image" width="30" height="20">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a class="social-button instagram" href="https://www.instagram.com/">
+          <img src="https://w7.pngwing.com/pngs/462/874/png-transparent-instagram-logo-icon-instagram-icon-text-logo-sticker-thumbnail.png" alt="instagram-image" width="10" height="20">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-text">
+      Never stop learning, because life never stops teaching!
+    </div>
+  </div>
+  <div class="copyright">
+      <div class="copyright-text">
+          <strong>© Codevita Live, All Right Reserved. Designed By <a class="WebExp-link" href="https://webexpress.net.in">Web Express</a></strong>
+      </div>
+  </div>
+  </body>
+</html>

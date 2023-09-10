@@ -2,9 +2,6 @@
     font-family:Ranade;
     src: url(../Fonts/Ranade-Regular.otf);
 }
-html{
-    font-size: 62.5%;
-}
 *{
     margin:0;
     padding: 0;
@@ -14,28 +11,28 @@ html{
 }
 body{
     background-color:#DDE6ED;
-
+    min-height: 200vh;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 .header{
     background-color: #fbfcf8;
-
+    height: 900px;
     width: 75vw;
     border-radius: 50px;
     margin-top: 30px;
 }
 .skill-brew-skills,.form-services,.footer{
     background-color: #3d75be;
-
+    height: 60vh;
     width: 75vw;
     border-radius: 50px;
     margin-top: 30px;
 }
 .advert-form,.review{
     background-color: #fbfcf8;
-
+    height: 60vh;
     width: 75vw;
     border-radius: 50px;
     margin-top: 30px;
@@ -115,8 +112,7 @@ body{
     padding-top: 100px;
 }
 .disclaimer-text{
-    width: 500px;
-    font-size: 1.5em;
+    width: 700px;
 }
 .disclaimer img{
     width: 600px;
@@ -227,15 +223,6 @@ body{
     justify-content:center;
     align-items: center;
     gap: 200px;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    gap: 200px;
-    background-color: #3d75be;
-    width: 75vw;
-    border-radius: 50px;
-    margin-top: 30px;
-    padding: 5em;
 }
 .get-in-touch-head{
     font-size: 30px;

@@ -2,15 +2,12 @@
     font-family:Ranade;
     src: url(../Fonts/Ranade-Regular.otf);
 }
-html{
-  font-size: 62.5%;
-}
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
     font-family:Ranade;
-    overflow-wrap: break-word;
+    
 }
 body{
     background-color:#DDE6ED;
@@ -21,16 +18,31 @@ body{
 }
 .header{
     background-color: #fbfcf8;
-    width: 75vw;
-    border-radius: 50px;
-    
-}
-.skill-brew-skills,.form-services,.footer{
-    background-color: #3d75be;
+    height: 800px;
     width: 75vw;
     border-radius: 50px;
     margin-top: 30px;
-    padding: 5em;
+}
+.header{
+    background-color: #fbfcf8;
+    height: 800px;
+    width: 75vw;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+.skill-brew-skills,.form-services{
+    background-color: #3d75be;
+    height: 80vh;
+    width: 75vw;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+.footer{
+    background-color: #3d75be;
+    height: 60vh;
+    width: 75vw;
+    border-radius: 50px;
+    margin-top: 30px;
 }
 .review{
     background-color: #fbfcf8;
@@ -40,27 +52,11 @@ body{
     margin-top: 30px;
 }
 .advert-form{
-  background-color: #fbfcf8;
-  height: 35vh;
-  width: 75vw;
-  border-radius: 50px;
-  margin-top: 30px;
-}
-
-.copyright{
-    background-color:#DDE6ED;
-    height: 30px;
-    width: 100%;
-    margin-top: 20px;
-    color: #02729e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-.WebExp-link{
-    text-decoration: none;
-    color: inherit;
+    background-color: #fbfcf8;
+    height: 35vh;
+    width: 75vw;
+    border-radius: 50px;
+    margin-top: 30px;
 }
 .navbar-custom{
     background-color: #fbfcf8;
@@ -73,13 +69,13 @@ body{
 .navbar-custom .navbar-nav .nav-link {
     color: black;
     font-family: 'Ranade', sans-serif;
-    font-size: 1.8em;
+    font-size: 18px;
 }
 .navbar-brand{
     color: #3d75be;
     font-family: 'Ranade', sans-serif;
     font-family: 'Ranade', sans-serif;
-    font-size: 3rem;
+    font-size: 30px;
     margin-left: 20px;
     font-weight: bolder;
 }
@@ -130,12 +126,17 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 60vh;
+    width: 75vw;
+    flex-direction: column;
+    gap: 50px;
 }
 .screen-text{
     font-family: 'Roboto', sans-serif;
-    font-size: 7em;
+    font-size: 70px;
+    width: 1200px;
     text-align: left;
-    padding: 1em;
+
 }
 .header .line{
     width: 50vh;
@@ -156,11 +157,22 @@ body{
     align-items: center;
 }
 .screen-text {
-    opacity: 0; /* Initially set the opacity to 0 */
-    transform: translateY(20px); /* Move the element down a bit */
-    animation: fadeInUp 1s ease forwards; /* Apply the animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards; 
   }
-  
+.screen-sub-text{
+    font-family: 'Roboto', sans-serif;
+    opacity: 0; 
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+    font-size: 24px;
+    font-weight: 700;
+    width: 1200px;
+    line-height: 2;
+    color: #3d75be;
+}
+
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -173,14 +185,15 @@ body{
   }
   .skill-brew-container {
     display: flex;
-    justify-content:space between;
+    justify-content:space-between;
     align-items: center;
     margin-bottom: 10px;
-    gap:10px;
+    gap:20px;
     width:400px;
+
   }
   .container-skill{
-    padding:2em;
+    padding-bottom: 30px;
   }
   .skill-list {
     flex: 1;
@@ -189,13 +202,15 @@ body{
     margin: 0; 
     display: flex;
     align-items: center;
-    font-size: 1.5em; 
+    font-size: 15px; 
     font-family: 'Roboto',sans-serif;
+    width: 500px;
+    
   }
   .skill-brew-title{
-    font-size: 3em;
+    font-size: 30px;
     font-weight: 800;
-    width: 300px;
+    width: 600px;
   }
   .skill-brew-skills hr{
     width: 200px;
@@ -203,8 +218,11 @@ body{
     border-radius: 25px;
   }
   .skill-brew-text{
-    width: 500px;
-    padding-bottom: 30px;
+    width: 600px;
+  }
+  .skill-brew-sub-text{
+    width: 600px;
+    font-weight: 300;
   }
   .tick {
     margin-right: 2px;
@@ -217,64 +235,60 @@ body{
     width: 1000px;
     gap: 30px;
     text-align: left;
-    padding:50px 0 0 50px;
+    margin:50px 0 0 50px;
     color: white;
   }
-
+  .skill-image-container{
+    padding-top: 100px;
+  }
+.datasc-buttons{
+    padding-top: 30px;
+}
   .skill-brew-skills{
     display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
   }
-  .skill-image{
-    width: 700px;
-    padding: 1em;
-  }
-  .advert-form{
+  .datasc-buttons .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #0687dd;
+    border-radius: 25%;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.datasc-buttons .btn:hover {
+    background-color: #2980b9;
+}
+.advert-form{
     display:flex;
     justify-content: space-around;
     align-items: center;
   }
-  .advert-form-text-head{
+.advert-form-text-head{
     text-align: left;
     font-weight: 800;
-    font-size: 2.4em;
+    font-size: 24px;
     padding-bottom: 30px;
   }
-  .advert-form-text-body{
-    width: 500px;
-    max-width: 100% ;
+.advert-form-text-body{
+    width: 700px;
   }
-  .advert-image{
-    max-width: 100%;
-  }
-  .review{
-    text-align: center;
-  }
-  .review-text{
-    padding-top: 2em;
-    font-size: 2.4em;
-    font-weight: 800;
-  }
-  .review-text a{
-    text-decoration: none;
-    color: #3d75be;
-  }
-  .review-video-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-    gap:100px;
-    padding-bottom: 30px;
-  }
-  .review-video-1{
-    width: 500px;
-    height: 281.25px; 
-  }
-  .review-video-2{
-    width: 500px;
-    height: 281.25px;
-  }
-  .location img{
+.form{
+    background-color: #3d75be;
+    height: 800px;
+    width: 75vw;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+.location img{
     width: 20px;
   }
   .mail img{
@@ -340,7 +354,6 @@ body{
     font-size: 30px;
     font-weight: 700;
 }
-
 .header {
     /* ... your existing styles ... */
     opacity: 0;
@@ -369,7 +382,7 @@ body{
     transform: translateY(-20px);
     animation: fadeInUp 1s 2s forwards;
   }
-  .review {
+  .form{
   
     opacity: 0;
     transform: translateY(-20px);
@@ -380,6 +393,18 @@ body{
     transform: translateY(-20px);
     animation: fadeInUp 1s 2s forwards;
   }
-
-
-  
+  .copyright{
+    background-color:#DDE6ED;
+    height: 30px;
+    width: 100%;
+    margin-top: 20px;
+    color: #02729e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.WebExp-link{
+    text-decoration: none;
+    color: inherit;
+}
